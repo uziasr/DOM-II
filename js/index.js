@@ -5,6 +5,7 @@ navSection.forEach(item =>{
     item.addEventListener('focus', (e)=>{
         item.style.color = 'dodgerblue'
         item.style.fontWeight = 'bold'
+        e.preventDefault()
     })
 })
 
@@ -61,10 +62,42 @@ buttons.forEach(item=>{
     })
 })
 
+//console logs what's copied and returns it red #9
+const paragraphs = document.querySelectorAll('p');
+paragraphs.forEach(item=>{
+    item.addEventListener('copy', e=>{
+        console.log(item)
+        item.style.color = 'red'
+    })
+})
 
-// const subTitles = document.querySelectorAll('h2');
-// subTitles.forEach(item=>{
-//     item.addEventListener('mouseover', e=>{
-//         item.style.animation =''
-//     })
-// })
+
+//the h2 subtitles will tell the person not to post anything on the site #10
+const body = document.querySelector('body')
+const subTitles = document.querySelectorAll('h2');
+page.addEventListener('paste', e=>{
+    //page.style.display = 'none';
+    subTitles.forEach(title=>{
+        title.textContent = "Please don't paste here"
+        title.style.fontSize = '3.6rem'  
+    })
+    
+})
+
+
+//using stopPropagation()
+const firstSubContent = document.querySelector('.destination p')
+firstSubContent.addEventListener('click', e=>{
+    e.stopPropagation()
+    firstSubContent.style.background = 'green'
+    // e.preventDefault()
+    // e.stopPropagation()
+})
+
+const finalContent = document.querySelector('.content-pick')
+finalContent.addEventListener('click', e=>{
+    e.stopPropagation()
+    finalContent.style.background = 'lightblue'
+    // e.preventDefault()
+   
+})
