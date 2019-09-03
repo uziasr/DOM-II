@@ -3,8 +3,8 @@
 const navSection = document.querySelectorAll('.nav a');
 navSection.forEach(item =>{
     item.addEventListener('focus', (e)=>{
-        item.style.color = 'red'
-        item.style.fontWeight = 'bold' 
+        item.style.color = 'dodgerblue'
+        item.style.fontWeight = 'bold'
     })
 })
 
@@ -27,9 +27,44 @@ allImg.forEach(item=>{
     })
     //an alert is brought up with the alt text when double clicked #5
     item.addEventListener('dblclick', e=>{
-        alert(item.alt)})
-        //rotates the image on the Y axis when clicked once #6
+        alert(item.alt)
+    })
+        //rotates the image on the Y axis when clicked once #6 
     item.addEventListener('click', e=>{
         item.style.transform = 'rotateY(180deg)'})
 
 })
+// unpins the navigation bar once resized #7
+const header = document.querySelector('header')
+window.addEventListener('resize', e=>{
+    header.style.position = 'relative'
+})
+
+// console.logs --> This page has successfully loaded when page loads #8
+window.addEventListener('load', e => {
+    console.log('This page has successfully loaded');
+  });
+
+
+
+  
+const buttons = document.querySelectorAll('.btn');
+buttons.forEach(item=>{
+    item.addEventListener('click',e =>{
+        var email = prompt('Enter your email to get started');
+        if (email==''||email==null){
+            alert('Cancelled')
+        }else{
+            alert(`Thank you please check '${email}' for further details!` )
+        }
+        
+    })
+})
+
+
+// const subTitles = document.querySelectorAll('h2');
+// subTitles.forEach(item=>{
+//     item.addEventListener('mouseover', e=>{
+//         item.style.animation =''
+//     })
+// })
